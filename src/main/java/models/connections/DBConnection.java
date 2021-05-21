@@ -1,4 +1,4 @@
-package models;
+package models.connections;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.logging.log4j.LogManager;
@@ -13,9 +13,9 @@ import java.sql.SQLException;
 public class DBConnection {
     private static final Logger LOGGER = LogManager.getLogger(DBConnection.class);
 
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/test?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/Basura_espacial?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String JDBC_USER = "root";
-    private static final String JDBC_PASS = "admin";
+    private static final String JDBC_PASS = "root";
     private static BasicDataSource dataSource;
 
     public static DataSource getDataSource() {

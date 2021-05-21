@@ -1,10 +1,10 @@
 package realizations.dao.impl;
 
-import models.DBConnection;
-import models.Garbage;
+import models.connections.DBConnection;
+import models.NaveEspacial;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import realizations.dao.interfaces.IGarbageDAO;
+import realizations.dao.interfaces.INaveEspacialDAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,30 +13,28 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GarbageDAO implements IGarbageDAO{
-
+public class NaveEspacialDAO implements INaveEspacialDAO {
     private Connection transactionalConnection;
 
-    private static final Logger LOGGER = LogManager.getLogger(GarbageDAO.class);
+    private static final Logger LOGGER = LogManager.getLogger(BasuraDAO.class);
 
-    private static final String SQL_INSERT = "INSERT INTO Garbages(last_orbit, velocity, weight, size) VALUES(?, ?, ?, ?)";
-    private static final String SQL_SELECT = "SELECT * FROM garbages";
-    public GarbageDAO(){}
+    private static final String SQL_INSERT = "INSERT INTO Space_ships(name, mission, crew_member) VALUES(?, ?, ?)";
+    private static final String SQL_SELECT = "SELECT * FROM Space_ships";
+
+    public NaveEspacialDAO(Connection transactionalConnection){ this.transactionalConnection = transactionalConnection;}
 
     @Override
-    public void create(Garbage garbage) {
+    public void create(NaveEspacial naveEspacial) {
         Connection conn = null;
         PreparedStatement stmt = null;
         try {
             conn = this.transactionalConnection != null ? this.transactionalConnection : DBConnection.getConnection();
             stmt = conn.prepareStatement(SQL_INSERT);
-            stmt.setString(1, garbage.getLastOrbit());
-            stmt.setDouble(2, garbage.getVelocity());
-            stmt.setDouble(3, garbage.getWeight());
-            stmt.setDouble(4, garbage.getSize());
+            stmt.setInt(1, naveEspacial.getCod());
+            stmt.setString(2, naveEspacial.getMission());
 
             LOGGER.info("Executing query:" + SQL_INSERT);
-            LOGGER.info(garbage.toString() + "has been added");
+            LOGGER.info(naveEspacial.toString() + "has been added");
         } catch (SQLException exception) {
             exception.printStackTrace();
         } finally {
@@ -47,13 +45,12 @@ public class GarbageDAO implements IGarbageDAO{
         }
     }
 
-    @Override
-    public List<Garbage> read() throws SQLException{
+    public List<NaveEspacial> read() throws SQLException {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        Garbage garbage = null;
-        List<Garbage> garbages = new ArrayList<Garbage>();
+        NaveEspacial naveEspacial = null;
+        List<NaveEspacial> naveEspacials = new ArrayList<NaveEspacial>();
 
         try {
             conn = this.transactionalConnection != null ? this.transactionalConnection : DBConnection.getConnection();
@@ -61,19 +58,13 @@ public class GarbageDAO implements IGarbageDAO{
             rs = stmt.executeQuery();
             while (rs.next()) {
                 long id = rs.getLong("id");
-                String lastOrbit = rs.getString("last_orbit");
-                double velocity = rs.getDouble("velocity");
-                double weight = rs.getDouble("weight");
-                double size = rs.getDouble("size");
+                String name = rs.getString("name");
+                String mission = rs.getString("mission");
+                long crewMember = rs.getLong("crew_member");
 
-                garbage = new Garbage();
-                garbage.setId(id);
-                garbage.setLastOrbit(lastOrbit);
-                garbage.setVelocity(velocity);
-                garbage.setWeight(weight);
-                garbage.setSize(size);
-                garbages.add(garbage);
-                LOGGER.info(garbage.toString() + "has been added");
+                naveEspacial = new NaveEspacial();
+                naveEspacial.setMission(mission);
+                LOGGER.info(naveEspacial.toString() + "has been added");
             }
         } finally {
             DBConnection.close(rs);
@@ -83,6 +74,6 @@ public class GarbageDAO implements IGarbageDAO{
             }
 
         }
-        return garbages;
+        return naveEspacials;
     }
 }

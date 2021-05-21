@@ -1,0 +1,17 @@
+2021-05-20 22:37:12,405 [main] ERROR Main - Cannot create PoolableConnectionFactory (Access denied for user 'root'@'localhost' (using password: YES))
+2021-05-20 22:37:12,409 [main] WARN  Main - rollback
+2021-05-20 22:43:15,487 [main] INFO  Main - Endeavour
+2021-05-20 22:44:02,773 [main] INFO  Main - Apollo
+2021-05-20 22:44:02,777 [main] DEBUG Main - Transaction has been done
+2021-05-23 20:59:40,408 [main] INFO  realizations.dao.impl.GarbageDAO - Executing query:INSERT INTO Garbages(last_orbit, velocity, weight, size) VALUES(?, ?, ?, ?)
+2021-05-23 20:59:40,422 [main] INFO  realizations.dao.impl.GarbageDAO - Garbage{lastOrbit='FukangPinwheel', velocity=0.2373673027587353, weight=0.4489627506513866, size=0.7310057479660859}has been added
+2021-05-23 20:59:40,423 [main] DEBUG Main - Transaction has been done
+2021-05-23 21:06:33,837 [main] DEBUG Main - Transaction has been done
+2021-05-23 21:06:55,331 [main] DEBUG Main - Transaction has been done
+2021-05-23 21:12:00,659 [main] DEBUG Main - Transaction has been done
+2021-05-23 21:30:24,065 [main] INFO  realizations.dao.impl.GarbageDAO - Executing query:INSERT INTO Basura_espacial.Tipo_De_Nave (cod) VALUES(?)
+2021-05-23 21:30:24,071 [main] INFO  realizations.dao.impl.GarbageDAO - models.TipoNave@7922d892has been added
+2021-05-23 21:30:24,076 [main] DEBUG Main - Transaction has been done
+2021-05-23 21:31:34,082 [main] INFO  realizations.dao.impl.GarbageDAO - Executing query:INSERT INTO Basura_espacial.Tipo_De_Nave (cod) VALUES(?)
+2021-05-23 21:31:34,088 [main] INFO  realizations.dao.impl.GarbageDAO - models.TipoNave@7922d892has been added
+2021-05-23 21:31:34,093 [main] DEBUG Main - Transaction has been done

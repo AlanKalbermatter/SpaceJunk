@@ -1,4 +1,4 @@
-package models;
+package models.connections;
 
 public abstract class BaseModel {
     private long id;
