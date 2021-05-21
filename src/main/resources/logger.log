@@ -1,0 +1,5 @@
+2021-05-20 22:37:12,405 [main] ERROR Main - Cannot create PoolableConnectionFactory (Access denied for user 'root'@'localhost' (using password: YES))
+2021-05-20 22:37:12,409 [main] WARN  Main - rollback
+2021-05-20 22:43:15,487 [main] INFO  Main - Endeavour
+2021-05-20 22:44:02,773 [main] INFO  Main - Apollo
+2021-05-20 22:44:02,777 [main] DEBUG Main - Transaction has been done

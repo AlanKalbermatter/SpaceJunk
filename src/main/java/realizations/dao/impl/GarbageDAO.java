@@ -2,6 +2,7 @@ package realizations.dao.impl;
 
 import models.DBConnection;
 import models.Garbage;
+import models.SpaceShip;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import realizations.dao.interfaces.IGarbageDAO;
@@ -21,7 +22,7 @@ public class GarbageDAO implements IGarbageDAO{
 
     private static final String SQL_INSERT = "INSERT INTO Garbages(last_orbit, velocity, weight, size) VALUES(?, ?, ?, ?)";
     private static final String SQL_SELECT = "SELECT * FROM garbages";
-    public GarbageDAO(){}
+    public GarbageDAO(Connection transactionalConnection){this.transactionalConnection = transactionalConnection;}
 
     @Override
     public void create(Garbage garbage) {
@@ -47,7 +48,6 @@ public class GarbageDAO implements IGarbageDAO{
         }
     }
 
-    @Override
     public List<Garbage> read() throws SQLException{
         Connection conn = null;
         PreparedStatement stmt = null;
