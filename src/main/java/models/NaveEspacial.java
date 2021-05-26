@@ -4,7 +4,7 @@ public class NaveEspacial {
     private int cod;
     private int matricula;
     private String mission;
-
+    private String agencia;
     public NaveEspacial(){}
 
     public int getCod() {
@@ -31,4 +31,11 @@ public class NaveEspacial {
         this.mission = mission;
     }
 
+    public String getAgencia() {
+        return agencia;
+    }
+
+    public void setAgencia(String agencia) {
+        this.agencia = agencia;
+    }
 }
