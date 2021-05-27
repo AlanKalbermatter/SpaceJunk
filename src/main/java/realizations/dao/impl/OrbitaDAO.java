@@ -14,9 +14,9 @@ public class OrbitaDAO implements IOrbitaDAO {
 
     private Connection transactionalConnection;
 
-    private static final Logger LOGGER = LogManager.getLogger(BasuraDAO.class);
+    private static final Logger LOGGER = LogManager.getLogger(OrbitaDAO.class);
 
-    private static final String SQL_INSERT = "INSERT INTO Basura_espacial.Basura (cod_nav, speed, weight, size, coordR, coordFi) VALUES(?, ?, ?, ?, ?, ?)";
+    private static final String SQL_INSERT = "INSERT INTO Basura_espacial.Orbita (coordFi, coordR) VALUES(?, ?)";
 
     public OrbitaDAO(Connection transactionalConnection) {this.transactionalConnection = transactionalConnection;}
 
@@ -29,6 +29,7 @@ public class OrbitaDAO implements IOrbitaDAO {
             stmt = conn.prepareStatement(SQL_INSERT);
             stmt.setDouble(1, orbita.getCoordR());
             stmt.setDouble(2, orbita.getCoordFi());
+            stmt.executeUpdate();
 
             LOGGER.info("Executing query:" + SQL_INSERT);
             LOGGER.info(orbita.toString() + "has been added");

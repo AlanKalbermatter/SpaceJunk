@@ -26,6 +26,7 @@ public class TipoNaveDAO {
             stmt = conn.prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS);
             stmt.setInt(1, tNave.getCod());
             stmt.executeUpdate();
+
             LOGGER.info("Executing query:" + SQL_INSERT);
             LOGGER.info(tNave.toString() + "has been added");
         } catch (SQLException exception) {

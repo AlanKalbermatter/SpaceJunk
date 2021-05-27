@@ -1,19 +1,12 @@
 package models;
 
 public class NaveEspacial {
-    private int cod;
     private int matricula;
-    private String mission;
+    private String mision;
+    private int tipoNave;
     private String agencia;
     public NaveEspacial(){}
 
-    public int getCod() {
-        return cod;
-    }
-
-    public void setCod(int cod) {
-        this.cod = cod;
-    }
 
     public int getMatricula() {
         return matricula;
@@ -23,12 +16,20 @@ public class NaveEspacial {
         this.matricula = matricula;
     }
 
-    public String getMission() {
-        return mission;
+    public String getMision() {
+        return mision;
     }
 
-    public void setMission(String mission) {
-        this.mission = mission;
+    public void setMision(String mision) {
+        this.mision = mision;
+    }
+
+    public int getTipoNave() {
+        return tipoNave;
+    }
+
+    public void setTipoNave(int tipoNave) {
+        this.tipoNave = tipoNave;
     }
 
     public String getAgencia() {

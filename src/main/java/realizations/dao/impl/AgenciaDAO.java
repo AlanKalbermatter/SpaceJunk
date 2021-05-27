@@ -1,5 +1,6 @@
 package realizations.dao.impl;
 
+import models.Agencia;
 import models.Orbita;
 import models.connections.DBConnection;
 import org.apache.logging.log4j.LogManager;
@@ -15,21 +16,21 @@ public class AgenciaDAO {
 
     private static final Logger LOGGER = LogManager.getLogger(AgenciaDAO.class);
 
-    private static final String SQL_INSERT = "INSERT INTO Basura_espacial.Basura (cod_nav, speed, weight, size, coordR, coordFi) VALUES(?, ?, ?, ?, ?, ?)";
+    private static final String SQL_INSERT = "INSERT INTO Basura_espacial.Agencia (nombre, numero_personas) VALUES(?, ?)";
 
     public AgenciaDAO(Connection transactionalConnection) {this.transactionalConnection = transactionalConnection;}
 
-    public void create(Orbita orbita) {
+    public void create(Agencia agencia) {
         Connection conn = null;
         PreparedStatement stmt = null;
         try {
             conn = this.transactionalConnection != null ? this.transactionalConnection : DBConnection.getConnection();
             stmt = conn.prepareStatement(SQL_INSERT);
-            stmt.setDouble(1, orbita.getCoordR());
-            stmt.setDouble(2, orbita.getCoordFi());
-
+            stmt.setString(1, agencia.getNombre());
+            stmt.setDouble(2, agencia.getNumeroPersonas());
+            stmt.executeUpdate();
             LOGGER.info("Executing query:" + SQL_INSERT);
-            LOGGER.info(orbita.toString() + "has been added");
+            LOGGER.info(agencia.toString() + "has been added");
         } catch (SQLException exception) {
             exception.printStackTrace();
         } finally {
