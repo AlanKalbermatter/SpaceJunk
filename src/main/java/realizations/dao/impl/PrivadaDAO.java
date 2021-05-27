@@ -16,7 +16,7 @@ public class PrivadaDAO {
 
     private static final Logger LOGGER = LogManager.getLogger(PrivadaDAO.class);
 
-    private static final String SQL_INSERT = "INSERT INTO Basura_espacial.Privada (AGENCIA_nombre, Publica_agencia_nombre) VALUES(?, ?)";
+    private static final String SQL_INSERT = "INSERT INTO Basura_espacial.Privada (clave_privada, clave_publica) VALUES(?, ?)";
     public PrivadaDAO(Connection transactionalConnection){this.transactionalConnection = transactionalConnection;}
 
     public void create(Privada privada) {

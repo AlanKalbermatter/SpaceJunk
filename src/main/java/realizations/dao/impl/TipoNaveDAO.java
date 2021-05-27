@@ -13,7 +13,7 @@ import java.sql.Statement;
 public class TipoNaveDAO {
     private Connection transactionalConnection;
 
-    private static final Logger LOGGER = LogManager.getLogger(BasuraDAO.class);
+    private static final Logger LOGGER = LogManager.getLogger(TipoNaveDAO.class);
 
     private static final String SQL_INSERT = "INSERT INTO Basura_espacial.Tipo_De_Nave (cod) VALUES(?)";
     public TipoNaveDAO(Connection transactionalConnection){this.transactionalConnection = transactionalConnection;}

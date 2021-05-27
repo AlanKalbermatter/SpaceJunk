@@ -45,3 +45,63 @@
 2021-05-23 21:38:15,415 [main] INFO  realizations.dao.impl.BasuraDAO - Executing query:INSERT INTO Basura_espacial.Tipo_De_Nave (cod) VALUES(?)
 2021-05-23 21:38:15,415 [main] INFO  realizations.dao.impl.BasuraDAO - models.TipoNave@36cda2c2has been added
 2021-05-23 21:38:15,416 [main] DEBUG Main - Transaction has been done
+2021-05-27 20:14:36,239 [main] INFO  realizations.dao.impl.AgenciaDAO - Executing query:INSERT INTO Basura_espacial.Agencia (nombre, numero_personas) VALUES(?, ?)
+2021-05-27 20:14:36,247 [main] INFO  realizations.dao.impl.AgenciaDAO - Agencia{nombre='Rocket Lab', numeroPersonas=246749742}has been added
+2021-05-27 20:14:36,282 [main] INFO  realizations.dao.impl.TipoNaveDAO - Executing query:INSERT INTO Basura_espacial.Tipo_De_Nave (cod) VALUES(?)
+2021-05-27 20:14:36,283 [main] INFO  realizations.dao.impl.TipoNaveDAO - models.TipoNave@2c7b5824has been added
+2021-05-27 20:14:36,306 [main] INFO  realizations.dao.impl.OrbitaDAO - Executing query:INSERT INTO Basura_espacial.Orbita (coordFi, coordR) VALUES(?, ?)
+2021-05-27 20:14:36,310 [main] INFO  realizations.dao.impl.OrbitaDAO - Orbita{coordR=0.15484646086861953, coordFi=0.6526674397180502}has been added
+2021-05-27 20:16:00,237 [main] INFO  realizations.dao.impl.AgenciaDAO - Executing query:INSERT INTO Basura_espacial.Agencia (nombre, numero_personas) VALUES(?, ?)
+2021-05-27 20:16:00,247 [main] INFO  realizations.dao.impl.AgenciaDAO - Agencia{nombre='Blue Origin', numeroPersonas=1584961754}has been added
+2021-05-27 20:16:00,274 [main] INFO  realizations.dao.impl.TipoNaveDAO - Executing query:INSERT INTO Basura_espacial.Tipo_De_Nave (cod) VALUES(?)
+2021-05-27 20:16:00,275 [main] INFO  realizations.dao.impl.TipoNaveDAO - models.TipoNave@2c7b5824has been added
+2021-05-27 20:16:00,289 [main] INFO  realizations.dao.impl.OrbitaDAO - Executing query:INSERT INTO Basura_espacial.Orbita (coordFi, coordR) VALUES(?, ?)
+2021-05-27 20:16:00,292 [main] INFO  realizations.dao.impl.OrbitaDAO - Orbita{coordR=0.16532228109083769, coordFi=0.9607050469410823}has been added
+2021-05-27 20:16:44,288 [main] INFO  realizations.dao.impl.TipoNaveDAO - Executing query:INSERT INTO Basura_espacial.Tipo_De_Nave (cod) VALUES(?)
+2021-05-27 20:16:44,291 [main] INFO  realizations.dao.impl.TipoNaveDAO - models.TipoNave@60975100has been added
+2021-05-27 20:16:44,300 [main] INFO  realizations.dao.impl.OrbitaDAO - Executing query:INSERT INTO Basura_espacial.Orbita (coordFi, coordR) VALUES(?, ?)
+2021-05-27 20:16:44,304 [main] INFO  realizations.dao.impl.OrbitaDAO - Orbita{coordR=0.1337833862216311, coordFi=0.9296788159384396}has been added
+2021-05-27 20:17:59,068 [main] INFO  realizations.dao.impl.AgenciaDAO - Executing query:INSERT INTO Basura_espacial.Agencia (nombre, numero_personas) VALUES(?, ?)
+2021-05-27 20:17:59,079 [main] INFO  realizations.dao.impl.AgenciaDAO - Agencia{nombre='Bigelow Aerospace', numeroPersonas=1436831686}has been added
+2021-05-27 20:17:59,102 [main] INFO  realizations.dao.impl.TipoNaveDAO - Executing query:INSERT INTO Basura_espacial.Tipo_De_Nave (cod) VALUES(?)
+2021-05-27 20:17:59,103 [main] INFO  realizations.dao.impl.TipoNaveDAO - models.TipoNave@2c7b5824has been added
+2021-05-27 20:17:59,114 [main] INFO  realizations.dao.impl.OrbitaDAO - Executing query:INSERT INTO Basura_espacial.Orbita (coordFi, coordR) VALUES(?, ?)
+2021-05-27 20:17:59,118 [main] INFO  realizations.dao.impl.OrbitaDAO - Orbita{coordR=0.07694387587455875, coordFi=0.6637071371167685}has been added
+2021-05-27 20:19:27,978 [main] INFO  realizations.dao.impl.AgenciaDAO - Executing query:INSERT INTO Basura_espacial.Agencia (nombre, numero_personas) VALUES(?, ?)
+2021-05-27 20:19:27,987 [main] INFO  realizations.dao.impl.AgenciaDAO - Agencia{nombre='SpaceDev', numeroPersonas=1811080740}has been added
+2021-05-27 20:19:28,012 [main] INFO  realizations.dao.impl.TipoNaveDAO - Executing query:INSERT INTO Basura_espacial.Tipo_De_Nave (cod) VALUES(?)
+2021-05-27 20:19:28,012 [main] INFO  realizations.dao.impl.TipoNaveDAO - models.TipoNave@2c7b5824has been added
+2021-05-27 20:19:28,021 [main] INFO  realizations.dao.impl.OrbitaDAO - Executing query:INSERT INTO Basura_espacial.Orbita (coordFi, coordR) VALUES(?, ?)
+2021-05-27 20:19:28,024 [main] INFO  realizations.dao.impl.OrbitaDAO - Orbita{coordR=0.5911480865212146, coordFi=0.5640886142174155}has been added
+2021-05-27 20:19:55,929 [main] INFO  realizations.dao.impl.AgenciaDAO - Executing query:INSERT INTO Basura_espacial.Agencia (nombre, numero_personas) VALUES(?, ?)
+2021-05-27 20:19:55,940 [main] INFO  realizations.dao.impl.AgenciaDAO - Agencia{nombre='Virgin Galactic', numeroPersonas=1819632738}has been added
+2021-05-27 20:19:55,966 [main] INFO  realizations.dao.impl.TipoNaveDAO - Executing query:INSERT INTO Basura_espacial.Tipo_De_Nave (cod) VALUES(?)
+2021-05-27 20:19:55,966 [main] INFO  realizations.dao.impl.TipoNaveDAO - models.TipoNave@2c7b5824has been added
+2021-05-27 20:19:55,979 [main] INFO  realizations.dao.impl.OrbitaDAO - Executing query:INSERT INTO Basura_espacial.Orbita (coordFi, coordR) VALUES(?, ?)
+2021-05-27 20:19:55,982 [main] INFO  realizations.dao.impl.OrbitaDAO - Orbita{coordR=0.369464693116476, coordFi=0.352336873404272}has been added
+2021-05-27 20:20:54,925 [main] INFO  realizations.dao.impl.TipoNaveDAO - Executing query:INSERT INTO Basura_espacial.Tipo_De_Nave (cod) VALUES(?)
+2021-05-27 20:20:54,929 [main] INFO  realizations.dao.impl.TipoNaveDAO - models.TipoNave@60975100has been added
+2021-05-27 20:20:54,940 [main] INFO  realizations.dao.impl.OrbitaDAO - Executing query:INSERT INTO Basura_espacial.Orbita (coordFi, coordR) VALUES(?, ?)
+2021-05-27 20:20:54,944 [main] INFO  realizations.dao.impl.OrbitaDAO - Orbita{coordR=0.08859860329683666, coordFi=0.9907496166194512}has been added
+2021-05-27 20:20:54,955 [main] INFO  realizations.dao.impl.NaveEspacialDAO - Executing query:INSERT INTO Basura_espacial.Nave (cod, mision, matricula, agencia_name) VALUES(?, ?, ?, ?)
+2021-05-27 20:20:54,955 [main] INFO  realizations.dao.impl.NaveEspacialDAO - models.NaveEspacial@c35172ehas been added
+2021-05-27 20:23:24,503 [main] INFO  realizations.dao.impl.AgenciaDAO - Executing query:INSERT INTO Basura_espacial.Agencia (nombre, numero_personas) VALUES(?, ?)
+2021-05-27 20:23:24,515 [main] INFO  realizations.dao.impl.AgenciaDAO - Agencia{nombre='NASA Jet Propulsion Laboratory', numeroPersonas=611865475}has been added
+2021-05-27 20:23:24,540 [main] INFO  realizations.dao.impl.TipoNaveDAO - Executing query:INSERT INTO Basura_espacial.Tipo_De_Nave (cod) VALUES(?)
+2021-05-27 20:23:24,541 [main] INFO  realizations.dao.impl.TipoNaveDAO - models.TipoNave@2c7b5824has been added
+2021-05-27 20:23:24,551 [main] INFO  realizations.dao.impl.OrbitaDAO - Executing query:INSERT INTO Basura_espacial.Orbita (coordFi, coordR) VALUES(?, ?)
+2021-05-27 20:23:24,554 [main] INFO  realizations.dao.impl.OrbitaDAO - Orbita{coordR=0.22121982812733876, coordFi=0.2671190184956288}has been added
+2021-05-27 20:24:24,214 [main] INFO  realizations.dao.impl.TipoNaveDAO - Executing query:INSERT INTO Basura_espacial.Tipo_De_Nave (cod) VALUES(?)
+2021-05-27 20:24:24,218 [main] INFO  realizations.dao.impl.TipoNaveDAO - models.TipoNave@60975100has been added
+2021-05-27 20:24:24,231 [main] INFO  realizations.dao.impl.OrbitaDAO - Executing query:INSERT INTO Basura_espacial.Orbita (coordFi, coordR) VALUES(?, ?)
+2021-05-27 20:24:24,235 [main] INFO  realizations.dao.impl.OrbitaDAO - Orbita{coordR=0.6265316656986982, coordFi=0.795451588526394}has been added
+2021-05-27 20:24:29,227 [main] INFO  realizations.dao.impl.NaveEspacialDAO - Executing query:INSERT INTO Basura_espacial.Nave (cod, mision, matricula, agencia_name) VALUES(?, ?, ?, ?)
+2021-05-27 20:24:29,228 [main] INFO  realizations.dao.impl.NaveEspacialDAO - models.NaveEspacial@230a73f2has been added
+2021-05-27 20:27:17,464 [main] INFO  realizations.dao.impl.AgenciaDAO - Executing query:INSERT INTO Basura_espacial.Agencia (nombre, numero_personas) VALUES(?, ?)
+2021-05-27 20:27:17,477 [main] INFO  realizations.dao.impl.AgenciaDAO - Agencia{nombre='JPL', numeroPersonas=570927528}has been added
+2021-05-27 20:27:17,505 [main] INFO  realizations.dao.impl.TipoNaveDAO - Executing query:INSERT INTO Basura_espacial.Tipo_De_Nave (cod) VALUES(?)
+2021-05-27 20:27:17,506 [main] INFO  realizations.dao.impl.TipoNaveDAO - models.TipoNave@2c7b5824has been added
+2021-05-27 20:27:17,513 [main] INFO  realizations.dao.impl.NaveEspacialDAO - Executing query:INSERT INTO Basura_espacial.Nave (cod, matricula, mision, agencia_name) VALUES(?, ?, ?, ?)
+2021-05-27 20:27:17,513 [main] INFO  realizations.dao.impl.NaveEspacialDAO - models.NaveEspacial@681a8b4ehas been added
+2021-05-27 20:27:17,547 [main] INFO  realizations.dao.impl.OrbitaDAO - Executing query:INSERT INTO Basura_espacial.Orbita (coordFi, coordR) VALUES(?, ?)
+2021-05-27 20:27:17,550 [main] INFO  realizations.dao.impl.OrbitaDAO - Orbita{coordR=0.01671730061363208, coordFi=0.5534254787010512}has been added

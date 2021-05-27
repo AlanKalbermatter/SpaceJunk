@@ -10,7 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class OrbitaDAO implements IOrbitaDAO {
+public class OrbitaDAO {
 
     private Connection transactionalConnection;
 
@@ -20,7 +20,7 @@ public class OrbitaDAO implements IOrbitaDAO {
 
     public OrbitaDAO(Connection transactionalConnection) {this.transactionalConnection = transactionalConnection;}
 
-    @Override
+
     public void create(Orbita orbita) {
         Connection conn = null;
         PreparedStatement stmt = null;

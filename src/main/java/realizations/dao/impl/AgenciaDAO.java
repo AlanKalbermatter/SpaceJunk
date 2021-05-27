@@ -29,6 +29,7 @@ public class AgenciaDAO {
             stmt.setString(1, agencia.getNombre());
             stmt.setDouble(2, agencia.getNumeroPersonas());
             stmt.executeUpdate();
+
             LOGGER.info("Executing query:" + SQL_INSERT);
             LOGGER.info(agencia.toString() + "has been added");
         } catch (SQLException exception) {

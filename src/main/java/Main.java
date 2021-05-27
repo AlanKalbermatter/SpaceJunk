@@ -21,7 +21,7 @@ public class Main {
         int i = 0;
         int ip = 0;
         int j = 0;
-        int matricula = 100;
+        int matricula = 0;
         int tipoNave = 0;
         int o = 0;
         int op = 0;
@@ -69,7 +69,8 @@ public class Main {
                 while (i != 1){
                     NaveEspacial nave = new NaveEspacial();
                     nave.setMision(faker.space().star());
-                    nave.setMatricula(matricula++);
+                    nave.setMatricula(matricula);
+                    matricula = matricula++;
                     nave.setAgencia(aPub.getNombre());
                     nave.setTipoNave(tN.getCod());
                     NaveEspacialDAO naveDAO = new NaveEspacialDAO(conn);
@@ -138,7 +139,8 @@ public class Main {
                     while (ip != 1){
                         NaveEspacial nave = new NaveEspacial();
                         nave.setMision(faker.space().star());
-                        nave.setMatricula(matricula++);
+                        nave.setMatricula(matricula);
+                        matricula++;
                         nave.setAgencia(aPriv.getNombre());
                         NaveEspacialDAO nedao = new NaveEspacialDAO(conn);
                         nedao.create(nave);

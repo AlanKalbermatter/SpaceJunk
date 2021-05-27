@@ -14,9 +14,9 @@ import java.sql.Statement;
 public class PublicaDAO {
     private Connection transactionalConnection;
 
-    private static final Logger LOGGER = LogManager.getLogger(BasuraDAO.class);
+    private static final Logger LOGGER = LogManager.getLogger(PublicaDAO.class);
 
-    private static final String SQL_INSERT = "INSERT INTO Basura_espacial.PUBLICA (agencia_nombre) VALUES(?)";
+    private static final String SQL_INSERT = "INSERT INTO Basura_espacial.PUBLICA (clave_publica) VALUES(?)";
     public PublicaDAO(Connection transactionalConnection){this.transactionalConnection = transactionalConnection;}
 
     public void create(Publica publica) {
