@@ -26,6 +26,7 @@ public class Main {
         int op = 0;
         int b = 1;
         int agenPri = 0;
+
 //        //crear orbita
 //        Orbita orbita = new Orbita();
 //        double ran1 = random.nextDouble();
@@ -38,19 +39,18 @@ public class Main {
 //        orbita.setCoordFi(ran2);
 
 
-
-
-
         //loop principal que crea agencias publicas
         while( j != 7 ) {
             Agencia aPub = new Agencia();
             aPub.setNombre(faker.space().company());
             Publica publica = new Publica();
             publica.setNombre(aPub.getNombre());
-
+            int ran8 = random.nextInt();
+            if (ran8 < 0)
+                ran8 = ran8 * -1;
+            aPub.setNumeroPersonas(ran8);
             //loop que crea tipos de naves publicas
             while(tipoNave != 10) {
-
                 //crear tipo nave
                 TipoNave tN = new TipoNave();
                 int ran3 = random.nextInt();
@@ -80,17 +80,20 @@ public class Main {
                         Basura basura = new Basura();
                         basura.setVelocity(random.nextDouble());
                         basura.setCod(b);
+                        b++;
                         basura.setCoordFi(orbita.getCoordFi());
                         basura.setCoordR(orbita.getCoordR());
                         double ran6 = random.nextDouble();
-                        if (ran6 < 0)
+                        if (ran6 < 0) {
                             ran6 = ran6 * -1;
+                        }
                         basura.setSize(ran6);
                         double ran7 = random.nextDouble();
-                        if (ran7 < 0)
+                        if (ran7 < 0) {
                             ran7 = ran7 * -1;
+                        }
                         basura.setWeight(ran7);
-                        b++;
+                        o++;
                     }
                 }
             }
@@ -141,7 +144,6 @@ public class Main {
                             if (ran7 < 0)
                                 ran7 = ran7 * -1;
                             basura.setWeight(ran7);
-
                             op++;
                         }
                         ip++;
@@ -152,13 +154,5 @@ public class Main {
             }
             j++;
         }
-
-        //crear tipo de nave
-        TipoNave tn = new TipoNave();
-        tn.setCod(random.nextInt());
-
-
-
-        
     }
 }
