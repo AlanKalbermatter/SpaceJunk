@@ -5,6 +5,10 @@ public class NaveEspacial {
     private String mision;
     private int tipoNave;
     private String agencia;
+    private double coordR;
+    private double coordFi;
+
+
     public NaveEspacial(){}
 
 
@@ -38,5 +42,21 @@ public class NaveEspacial {
 
     public void setAgencia(String agencia) {
         this.agencia = agencia;
+    }
+
+    public double getCoordR() {
+        return coordR;
+    }
+
+    public void setCoordR(double coordR) {
+        this.coordR = coordR;
+    }
+
+    public double getCoordFi() {
+        return coordFi;
+    }
+
+    public void setCoordFi(double coordFi) {
+        this.coordFi = coordFi;
     }
 }

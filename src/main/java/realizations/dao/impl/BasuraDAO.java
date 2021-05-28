@@ -16,7 +16,7 @@ public class BasuraDAO implements IBasuraDAO {
 
     private static final Logger LOGGER = LogManager.getLogger(BasuraDAO.class);
 
-    private static final String SQL_INSERT = "INSERT INTO Basura_espacial.Basura (cod_nav, speed, weight, size, coordR, coordFi) VALUES(?, ?, ?, ?, ?, ?)";
+    private static final String SQL_INSERT = "INSERT INTO Basura_espacial.Basura (cod_nav, speed, weight, size, orbita_id) VALUES(?, ?, ?, ?, ?)";
     public BasuraDAO(Connection transactionalConnection){this.transactionalConnection = transactionalConnection;}
 
 
@@ -30,8 +30,7 @@ public class BasuraDAO implements IBasuraDAO {
             stmt.setDouble(2, basura.getVelocity());
             stmt.setDouble(3, basura.getWeight());
             stmt.setDouble(4, basura.getSize());
-            stmt.setDouble(5, basura.getCoordR());
-            stmt.setDouble(6, basura.getCoordFi());
+            stmt.setInt(5, basura.getOrbitaId());
             stmt.executeUpdate();
 
             LOGGER.info("Executing query:" + SQL_INSERT);

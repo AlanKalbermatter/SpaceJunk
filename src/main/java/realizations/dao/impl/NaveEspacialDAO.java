@@ -29,6 +29,7 @@ public class NaveEspacialDAO implements INaveEspacialDAO {
             stmt.setInt(2, naveEspacial.getMatricula());
             stmt.setString(3, naveEspacial.getMision());
             stmt.setString(4, naveEspacial.getAgencia());
+
             stmt.executeUpdate();
 
             LOGGER.info("Executing query:" + SQL_INSERT);
@@ -42,6 +43,4 @@ public class NaveEspacialDAO implements INaveEspacialDAO {
             }
         }
     }
-
-
 }

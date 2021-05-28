@@ -18,32 +18,25 @@ public class Main {
         Faker faker = new Faker();
         Random random = new Random();
 
-        int i = 0;
-        int ip = 0;
-        int j = 0;
+        int indiceNavePrivada = 0;
+        int pricipal = 0;
+        int indiceTipoNave = 0;
+        int indicieOrbitas = 0;
+        int indiceAgenciaPrivada = 0;
+        int cod = 1;
         int matricula = 0;
-        int tipoNave = 0;
-        int o = 0;
-        int op = 0;
-        int b = 1;
-        int agenPri = 0;
-
-//        //crear orbita
-//        Orbita orbita = new Orbita();
-//        double ran1 = random.nextDouble();
-//        if (ran1 < 0 )
-//            ran1 = ran1 * -1;
-//        orbita.setCoordR(ran1);
-//        double ran2 = random.nextDouble();
-//        if (ran2 < 0)
-//            ran2 = ran2 * -1;
-//        orbita.setCoordFi(ran2);
+        int orbitaId = 1;
+        int elipticaId = 1;
+        int circularId = 1;
+        double ran1 = random.nextDouble();
+        if (ran1 < 0 )
+            ran1 = ran1 * -1;
 
 
         //loop principal que crea agencias publicas
-        while( j != 1 ) {
+        while( pricipal < 10 ) {
             Agencia aPub = new Agencia();
-            aPub.setNombre(faker.space().company());
+            aPub.setNombre(faker.space().company() + " " + faker.space().distanceMeasurement());
             Publica publica = new Publica();
             publica.setNombre(aPub.getNombre());
             int ran8 = random.nextInt();
@@ -56,48 +49,50 @@ public class Main {
             pdao.create(publica);
 
             //loop que crea tipos de naves publicas
-            while(tipoNave != 1) {
+            while(indiceTipoNave < 1000) {
                 //crear tipo nave
                 TipoNave tN = new TipoNave();
-                int ran3 = random.nextInt();
-                if (ran3 < 0 )
-                    ran3 = ran3 * -1;
-                tN.setCod(ran3);
+                tN.setCod(cod++);
                 TipoNaveDAO tndao = new TipoNaveDAO(conn);
                 tndao.create(tN);
                 //crear naves publicas
-                while (i != 1){
                     NaveEspacial nave = new NaveEspacial();
-                    nave.setMision(faker.space().star());
-                    nave.setMatricula(matricula);
-                    matricula = matricula++;
-                    nave.setAgencia(aPub.getNombre());
                     nave.setTipoNave(tN.getCod());
+                    nave.setMatricula(matricula++);
+                    nave.setMision(faker.space().star());
+                    nave.setAgencia(aPub.getNombre());
                     NaveEspacialDAO naveDAO = new NaveEspacialDAO(conn);
                     naveDAO.create(nave);
 
                     //crear basura publica
-                    while(o != 1){
+                    while(indicieOrbitas < 1000) {
                         //crear orbita
+                        Eliptica eliptica = new Eliptica();
                         Orbita orbita = new Orbita();
-                        double ran1 = random.nextDouble();
-                        if (ran1 < 0 )
-                            ran1 = ran1 * -1;
-                        orbita.setCoordR(ran1);
+                        orbita.setId(orbitaId);
+                        orbitaId++;
+                        double ran11 = random.nextDouble();
+                        if (ran11 < 0 )
+                            ran11 = ran11 * -1;
+                        orbita.setCoordR(ran11);
                         double ran2 = random.nextDouble();
                         if (ran2 < 0)
                             ran2 = ran2 * -1;
                         orbita.setCoordFi(ran2);
+                        eliptica.setId(elipticaId);
+                        elipticaId++;
+                        eliptica.setOrbitaId(orbita.getId());
+                        eliptica.setExentricidad(random.nextInt());
                         OrbitaDAO orbitaDAO = new OrbitaDAO(conn);
                         orbitaDAO.create(orbita);
+                        ElipticaDAO eDAO = new ElipticaDAO(conn);
+                        eDAO.create(eliptica);
 
                         //crear basura
                         Basura basura = new Basura();
                         basura.setVelocity(random.nextDouble());
-                        basura.setCod(b);
-                        b++;
-                        basura.setCoordFi(orbita.getCoordFi());
-                        basura.setCoordR(orbita.getCoordR());
+                        basura.setCod(nave.getTipoNave());
+                        basura.setOrbitaId(eliptica.getId());
                         double ran6 = random.nextDouble();
                         if (ran6 < 0) {
                             ran6 = ran6 * -1;
@@ -110,17 +105,18 @@ public class Main {
                         basura.setWeight(ran7);
                         BasuraDAO bdao = new BasuraDAO(conn);
                         bdao.create(basura);
-                        o++;
+                        indicieOrbitas++;
                     }
-                }
+                    indiceTipoNave++;
             }
 
             //loop que crea agencias privadas
-            tipoNave = 0;
-            while(agenPri != 1){
+            indicieOrbitas = 0;
+            indiceTipoNave = 0;
+            while(indiceAgenciaPrivada < 10){
                 Agencia aPriv = new Agencia();
                 Privada privada = new Privada();
-                aPriv.setNombre(faker.space().company());
+                aPriv.setNombre(faker.space().company() + " " + faker.space().meteorite());
                 int ran9 = random.nextInt();
                 if (ran9 < 0)
                     ran9 = ran9 * -1;
@@ -133,39 +129,51 @@ public class Main {
                 priDAO.create(privada);
                 //loop que crea tipos de naves privadas
 
-                while(tipoNave != 1) {
-
+                while(indiceTipoNave < 1000) {
                     //crear naves privadas
-                    while (ip != 1){
-                        NaveEspacial nave = new NaveEspacial();
-                        nave.setMision(faker.space().star());
-                        nave.setMatricula(matricula);
-                        matricula++;
-                        nave.setAgencia(aPriv.getNombre());
+                    TipoNave tN = new TipoNave();
+                    tN.setCod(cod++);
+                    TipoNaveDAO tndao = new TipoNaveDAO(conn);
+                    tndao.create(tN);
+                    while (indiceNavePrivada != 1){
+                        NaveEspacial navePriv = new NaveEspacial();
+                        navePriv.setTipoNave(tN.getCod());
+                        navePriv.setMision(faker.space().star());
+                        navePriv.setMatricula(matricula++);
+                        navePriv.setAgencia(aPriv.getNombre());
                         NaveEspacialDAO nedao = new NaveEspacialDAO(conn);
-                        nedao.create(nave);
+                        nedao.create(navePriv);
                         //crear basura privada
 
-                        while(op != 1){
+                        while(indicieOrbitas < 1000){
                             //crear orbita
                             Orbita orbita = new Orbita();
-                            double ran1 = random.nextDouble();
-                            if (ran1 < 0 )
-                                ran1 = ran1 * -1;
-                            orbita.setCoordR(ran1);
+                            orbita.setId(orbitaId);
+                            orbitaId++;
+                            double ran11 = random.nextDouble();
+                            if (ran11 < 0 )
+                                ran11 = ran11 * -1;
+                            orbita.setCoordR(ran11);
                             double ran2 = random.nextDouble();
                             if (ran2 < 0)
                                 ran2 = ran2 * -1;
                             orbita.setCoordFi(ran2);
-                            OrbitaDAO ordao = new OrbitaDAO(conn);
-                            ordao.create(orbita);
+                            Circular circular = new Circular();
+                            circular.setId(circularId);
+                            circularId++;
+                            circular.setOrbitaId(orbita.getId());
+                            circular.setGeoestacionaria(random.nextInt());
+                            OrbitaDAO orbitaDAO = new OrbitaDAO(conn);
+                            orbitaDAO.create(orbita);
+                            CircularDAO cDAO = new CircularDAO(conn);
+                            cDAO.create(circular);
+//                            OrbitaDAO ordao = new OrbitaDAO(conn);
+//                            ordao.create(orbita);
                             //crear basura
                             Basura basura = new Basura();
                             basura.setVelocity(random.nextDouble());
-                            basura.setCod(b);
-                            b++;
-                            basura.setCoordFi(orbita.getCoordFi());
-                            basura.setCoordR(orbita.getCoordR());
+                            basura.setCod(navePriv.getTipoNave());
+                            basura.setOrbitaId(circular.getId());
                             double ran6 = random.nextDouble();
                             if (ran6 < 0)
                                 ran6 = ran6 * -1;
@@ -176,15 +184,15 @@ public class Main {
                             basura.setWeight(ran7);
                             BasuraDAO basdao = new BasuraDAO(conn);
                             basdao.create(basura);
-                            op++;
+                            indicieOrbitas++;
                         }
-                        ip++;
+                        indiceNavePrivada++;
                     }
-                    tipoNave++;
+                    indiceTipoNave++;
                 }
-                agenPri++;
+                indiceAgenciaPrivada++;
             }
-            j++;
+            pricipal++;
         }
     }
 }

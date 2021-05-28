@@ -1,6 +1,7 @@
 package models;
 
 public class Agencia {
+
     private String nombre;
     private int numeroPersonas;
 

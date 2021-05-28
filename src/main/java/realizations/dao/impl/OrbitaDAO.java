@@ -16,7 +16,7 @@ public class OrbitaDAO {
 
     private static final Logger LOGGER = LogManager.getLogger(OrbitaDAO.class);
 
-    private static final String SQL_INSERT = "INSERT INTO Basura_espacial.Orbita (coordFi, coordR) VALUES(?, ?)";
+    private static final String SQL_INSERT = "INSERT INTO Basura_espacial.Orbita (id, coordFi, coordR) VALUES(?, ?, ?)";
 
     public OrbitaDAO(Connection transactionalConnection) {this.transactionalConnection = transactionalConnection;}
 
@@ -27,8 +27,9 @@ public class OrbitaDAO {
         try {
             conn = this.transactionalConnection != null ? this.transactionalConnection : DBConnection.getConnection();
             stmt = conn.prepareStatement(SQL_INSERT);
-            stmt.setDouble(1, orbita.getCoordR());
-            stmt.setDouble(2, orbita.getCoordFi());
+            stmt.setInt(1, orbita.getId());
+            stmt.setDouble(2, orbita.getCoordR());
+            stmt.setDouble(3, orbita.getCoordFi());
             stmt.executeUpdate();
 
             LOGGER.info("Executing query:" + SQL_INSERT);

@@ -5,19 +5,9 @@ public class Basura {
     private double velocity;
     private double weight;
     private double size;
-    private double coordR;
-    private double coordFi;
+    private int orbitaId;
 
     public Basura(){}
-
-    public Basura(int cod, double velocity, double weight, double size, double coordR, double coordFi){
-        this.cod = cod;
-        this.velocity = velocity;
-        this.weight = weight;
-        this.size = size;
-        this.coordR = coordR;
-        this.coordFi = coordFi;
-    }
 
     public int getCod() {
         return cod;
@@ -51,21 +41,11 @@ public class Basura {
         this.size = size;
     }
 
-    public double getCoordR() {
-        return coordR;
+    public int getOrbitaId() {
+        return orbitaId;
     }
 
-    public void setCoordR(double coordR) {
-        this.coordR = coordR;
+    public void setOrbitaId(int orbitaId) {
+        this.orbitaId = orbitaId;
     }
-
-    public double getCoordFi() {
-        return coordFi;
-    }
-
-    public void setCoordFi(double coordFi) {
-        this.coordFi = coordFi;
-    }
-
-
 }

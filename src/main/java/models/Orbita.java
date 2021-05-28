@@ -1,10 +1,19 @@
 package models;
 
 public class Orbita{
+    private int id;
     private double coordR;
     private double coordFi;
 
     public Orbita(){}
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public double getCoordR() {
         return coordR;

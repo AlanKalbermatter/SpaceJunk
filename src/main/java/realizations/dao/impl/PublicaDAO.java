@@ -16,7 +16,7 @@ public class PublicaDAO {
 
     private static final Logger LOGGER = LogManager.getLogger(PublicaDAO.class);
 
-    private static final String SQL_INSERT = "INSERT INTO Basura_espacial.PUBLICA (clave_publica) VALUES(?)";
+    private static final String SQL_INSERT = "INSERT INTO Basura_espacial.Publica (clave_publica) VALUES(?)";
     public PublicaDAO(Connection transactionalConnection){this.transactionalConnection = transactionalConnection;}
 
     public void create(Publica publica) {
