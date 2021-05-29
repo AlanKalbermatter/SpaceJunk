@@ -68,10 +68,9 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- Table `Basura_espacial`.`Orbita`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Basura_espacial`.`Orbita` (
-  `id` INT NOT NULL,
   `coordR` DOUBLE NOT NULL,
   `coordFi` DOUBLE NOT NULL,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`coordR`, `coordFi`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
@@ -86,17 +85,18 @@ CREATE TABLE IF NOT EXISTS `Basura_espacial`.`Basura` (
   `speed` DOUBLE NULL DEFAULT NULL,
   `weight` DOUBLE NULL DEFAULT NULL,
   `size` DOUBLE NULL DEFAULT NULL,
-  `orbita_id` INT NOT NULL,
+  `coordR` DOUBLE NOT NULL,
+  `coordFi` DOUBLE NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `cod_nav` (`cod_nav` ASC) VISIBLE,
-  INDEX `orbita_id` (`orbita_id` ASC) VISIBLE,
+  INDEX `coordR` (`coordR` ASC, `coordFi` ASC) VISIBLE,
   CONSTRAINT `Basura_ibfk_1`
     FOREIGN KEY (`cod_nav`)
     REFERENCES `Basura_espacial`.`Nave` (`cod`)
     ON UPDATE CASCADE,
   CONSTRAINT `Basura_ibfk_2`
-    FOREIGN KEY (`orbita_id`)
-    REFERENCES `Basura_espacial`.`Orbita` (`id`)
+    FOREIGN KEY (`coordR` , `coordFi`)
+    REFERENCES `Basura_espacial`.`Orbita` (`coordR` , `coordFi`)
     ON UPDATE CASCADE)
 ENGINE = InnoDB
 AUTO_INCREMENT = 12
@@ -108,13 +108,13 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- Table `Basura_espacial`.`Circular`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Basura_espacial`.`Circular` (
-  `id` INT NOT NULL,
-  `orbita_id` INT NOT NULL,
-  `geoestacionaria` INT NOT NULL,
-  PRIMARY KEY (`id`),
+  `coordR` DOUBLE NOT NULL,
+  `coordFi` DOUBLE NOT NULL,
+  `Geoestacionaria` TINYINT(1) NOT NULL,
+  PRIMARY KEY (`coordR`, `coordFi`),
   CONSTRAINT `Circular_ibfk_1`
-    FOREIGN KEY (`orbita_id`)
-    REFERENCES `Basura_espacial`.`Orbita` (`id`)
+    FOREIGN KEY (`coordR` , `coordFi`)
+    REFERENCES `Basura_espacial`.`Orbita` (`coordR` , `coordFi`)
     ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
@@ -143,13 +143,13 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- Table `Basura_espacial`.`Eliptica`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Basura_espacial`.`Eliptica` (
-  `id` INT NOT NULL,
-  `orbita_id` INT NOT NULL,
-  `excentricidad` INT NOT NULL,
-  PRIMARY KEY (`id`),
+  `coordR` DOUBLE NOT NULL,
+  `coordFi` DOUBLE NOT NULL,
+  `exentricidad` INT NOT NULL,
+  PRIMARY KEY (`coordR`, `coordFi`),
   CONSTRAINT `Eliptica_ibfk_1`
-    FOREIGN KEY (`orbita_id`)
-    REFERENCES `Basura_espacial`.`Orbita` (`id`)
+    FOREIGN KEY (`coordR` , `coordFi`)
+    REFERENCES `Basura_espacial`.`Orbita` (`coordR` , `coordFi`)
     ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
@@ -185,15 +185,16 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Basura_espacial`.`Lanza` (
   `cod` INT NOT NULL,
-  `orbita_id` INT NOT NULL,
+  `coordR` DOUBLE NOT NULL,
+  `coordFi` DOUBLE NOT NULL,
   `nombre` VARCHAR(30) NOT NULL,
   `fecha` DATE NULL DEFAULT NULL,
-  PRIMARY KEY (`cod`, `orbita_id`, `nombre`),
-  INDEX `orbita_id` (`orbita_id` ASC) VISIBLE,
+  PRIMARY KEY (`cod`, `coordR`, `coordFi`, `nombre`),
+  INDEX `coordR` (`coordR` ASC, `coordFi` ASC) VISIBLE,
   INDEX `nombre` (`nombre` ASC) VISIBLE,
   CONSTRAINT `Lanza_ibfk_1`
-    FOREIGN KEY (`orbita_id`)
-    REFERENCES `Basura_espacial`.`Orbita` (`id`)
+    FOREIGN KEY (`coordR` , `coordFi`)
+    REFERENCES `Basura_espacial`.`Orbita` (`coordR` , `coordFi`)
     ON UPDATE CASCADE,
   CONSTRAINT `Lanza_ibfk_2`
     FOREIGN KEY (`cod`)
@@ -213,16 +214,17 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Basura_espacial`.`Navega_en` (
   `cod` INT NOT NULL,
-  `orbita_id` INT NOT NULL,
+  `coordR` DOUBLE NOT NULL,
+  `coordFi` DOUBLE NOT NULL,
   `fecha_ini` DATE NULL DEFAULT NULL,
   `hora_ini` TIME NULL DEFAULT NULL,
   `fecha_fin` DATE NULL DEFAULT NULL,
   `hora_fin` TIME NULL DEFAULT NULL,
-  PRIMARY KEY (`cod`, `orbita_id`),
-  INDEX `orbita_id` (`orbita_id` ASC) VISIBLE,
+  PRIMARY KEY (`cod`, `coordR`, `coordFi`),
+  INDEX `coordR` (`coordR` ASC, `coordFi` ASC) VISIBLE,
   CONSTRAINT `Navega_en_ibfk_1`
-    FOREIGN KEY (`orbita_id`)
-    REFERENCES `Basura_espacial`.`Orbita` (`id`)
+    FOREIGN KEY (`coordR` , `coordFi`)
+    REFERENCES `Basura_espacial`.`Orbita` (`coordR` , `coordFi`)
     ON UPDATE CASCADE,
   CONSTRAINT `Navega_en_ibfk_2`
     FOREIGN KEY (`cod`)
