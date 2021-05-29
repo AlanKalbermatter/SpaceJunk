@@ -4,8 +4,6 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
-CREATE SCHEMA 'Basura_espacial';
-USE Basura_espacial;
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
@@ -23,7 +21,7 @@ USE `Basura_espacial` ;
 -- Table `Basura_espacial`.`Agencia`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Basura_espacial`.`Agencia` (
-  `nombre` VARCHAR(50) NOT NULL,
+  `nombre` VARCHAR(30) NOT NULL,
   `numero_personas` INT NOT NULL,
   PRIMARY KEY (`nombre`))
 ENGINE = InnoDB
@@ -253,7 +251,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- Table `Basura_espacial`.`Publica`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Basura_espacial`.`Publica` (
-  `clave_publica` VARCHAR(50) NOT NULL,
+  `clave_publica` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`clave_publica`),
   CONSTRAINT `Publica_ibfk_1`
     FOREIGN KEY (`clave_publica`)
@@ -268,8 +266,8 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- Table `Basura_espacial`.`Privada`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Basura_espacial`.`Privada` (
-  `clave_privada` VARCHAR(50) NOT NULL,
-  `clave_publica` VARCHAR(50) NULL DEFAULT NULL,
+  `clave_privada` VARCHAR(30) NOT NULL,
+  `clave_publica` VARCHAR(30) NULL DEFAULT NULL,
   PRIMARY KEY (`clave_privada`),
   INDEX `clave_publica` (`clave_publica` ASC) VISIBLE,
   CONSTRAINT `Privada_ibfk_1`
