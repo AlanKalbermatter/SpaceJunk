@@ -1,0 +1,9 @@
+DELETE FROM Basura_espacial.Nave;
+DELETE FROM Basura_espacial.Privada;
+DELETE FROM Basura_espacial.Publica;
+DELETE FROM Basura_espacial.Agencia;
+DELETE FROM Basura_espacial.Tipo_De_Nave;
+DELETE FROM Basura_espacial.Orbita;
+DELETE FROM Basura_espacial.Basura;
+DELETE FROM Basura_espacial.Eliptica;
+DELETE FROM Basura_espacial.Circular;
