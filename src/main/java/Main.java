@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.Random;
 
 public class Main {
+
     private static final Logger LOGGER = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) throws SQLException {
@@ -43,8 +44,10 @@ public class Main {
             if (ran8 < 0)
                 ran8 = ran8 * -1;
             aPub.setNumeroPersonas(ran8);
+            LOGGER.info(aPub.toString());
             AgenciaDAO adao = new AgenciaDAO(conn);
             adao.create(aPub);
+            LOGGER.info(publica.toString());
             PublicaDAO pdao = new PublicaDAO(conn);
             pdao.create(publica);
 
@@ -53,6 +56,7 @@ public class Main {
                 //crear tipo nave
                 TipoNave tN = new TipoNave();
                 tN.setCod(cod++);
+                LOGGER.info(tN.toString());
                 TipoNaveDAO tndao = new TipoNaveDAO(conn);
                 tndao.create(tN);
                 //crear naves publicas
@@ -61,6 +65,7 @@ public class Main {
                     nave.setMatricula(matricula++);
                     nave.setMision(faker.space().star());
                     nave.setAgencia(aPub.getNombre());
+                    LOGGER.info(nave.toString());
                     NaveEspacialDAO naveDAO = new NaveEspacialDAO(conn);
                     naveDAO.create(nave);
 
@@ -83,8 +88,10 @@ public class Main {
                         elipticaId++;
                         eliptica.setOrbitaId(orbita.getId());
                         eliptica.setExentricidad(random.nextInt());
+                        LOGGER.info(orbita.toString());
                         OrbitaDAO orbitaDAO = new OrbitaDAO(conn);
                         orbitaDAO.create(orbita);
+                        LOGGER.info(eliptica.toString());
                         ElipticaDAO eDAO = new ElipticaDAO(conn);
                         eDAO.create(eliptica);
 
@@ -103,6 +110,7 @@ public class Main {
                             ran7 = ran7 * -1;
                         }
                         basura.setWeight(ran7);
+                        LOGGER.info(basura.toString());
                         BasuraDAO bdao = new BasuraDAO(conn);
                         bdao.create(basura);
                         indicieOrbitas++;
@@ -123,8 +131,10 @@ public class Main {
                 aPriv.setNumeroPersonas(ran9);
                 privada.setNombre(aPriv.getNombre());
                 privada.setEsFiscalizadaPor(publica.getNombre());
+                LOGGER.info(aPriv.toString());
                 AgenciaDAO apdao = new AgenciaDAO(conn);
                 apdao.create(aPriv);
+                LOGGER.info(privada.toString());
                 PrivadaDAO priDAO = new PrivadaDAO(conn);
                 priDAO.create(privada);
                 //loop que crea tipos de naves privadas
@@ -133,6 +143,7 @@ public class Main {
                     //crear naves privadas
                     TipoNave tN = new TipoNave();
                     tN.setCod(cod++);
+                    LOGGER.info(tN.toString());
                     TipoNaveDAO tndao = new TipoNaveDAO(conn);
                     tndao.create(tN);
                     while (indiceNavePrivada != 1){
@@ -141,6 +152,7 @@ public class Main {
                         navePriv.setMision(faker.space().star());
                         navePriv.setMatricula(matricula++);
                         navePriv.setAgencia(aPriv.getNombre());
+                        LOGGER.info(navePriv.toString());
                         NaveEspacialDAO nedao = new NaveEspacialDAO(conn);
                         nedao.create(navePriv);
                         //crear basura privada
@@ -163,12 +175,12 @@ public class Main {
                             circularId++;
                             circular.setOrbitaId(orbita.getId());
                             circular.setGeoestacionaria(random.nextInt());
+                            LOGGER.info(orbita.toString());
                             OrbitaDAO orbitaDAO = new OrbitaDAO(conn);
                             orbitaDAO.create(orbita);
+                            LOGGER.info(circular.toString());
                             CircularDAO cDAO = new CircularDAO(conn);
                             cDAO.create(circular);
-                            OrbitaDAO ordao = new OrbitaDAO(conn);
-                            ordao.create(orbita);
                             //crear basura
                             Basura basura = new Basura();
                             basura.setVelocity(random.nextDouble());
@@ -182,6 +194,7 @@ public class Main {
                             if (ran7 < 0)
                                 ran7 = ran7 * -1;
                             basura.setWeight(ran7);
+                            LOGGER.info(basura.toString());
                             BasuraDAO basdao = new BasuraDAO(conn);
                             basdao.create(basura);
                             indicieOrbitas++;
@@ -194,5 +207,9 @@ public class Main {
             }
             pricipal++;
         }
+        LOGGER.info("྆ ྆ ྆ ྆ ྆ ྆ ྆ ྆ ྆ ྆ ྆ ྆");
+        LOGGER.info("Bombardeo finalizado!!!");
+        LOGGER.info("྆ ྆ ྆ ྆ ྆ ྆ ྆ ྆ ྆ ྆ ྆ ྆");
+        System.out.println("Bombardeo finalizado!!!");
     }
 }

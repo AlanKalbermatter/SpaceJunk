@@ -59,4 +59,16 @@ public class NaveEspacial {
     public void setCoordFi(double coordFi) {
         this.coordFi = coordFi;
     }
+
+    @Override
+    public String toString() {
+        return "NaveEspacial{" +
+                "matricula=" + matricula +
+                ", mision='" + mision + '\'' +
+                ", tipoNave=" + tipoNave +
+                ", agencia='" + agencia + '\'' +
+                ", coordR=" + coordR +
+                ", coordFi=" + coordFi +
+                '}';
+    }
 }

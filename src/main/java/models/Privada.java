@@ -21,4 +21,12 @@ public class Privada {
     public void setEsFiscalizadaPor(String esFiscalizadaPor) {
         this.esFiscalizadaPor = esFiscalizadaPor;
     }
+
+    @Override
+    public String toString() {
+        return "Privada{" +
+                "nombre='" + nombre + '\'' +
+                ", esFiscalizadaPor='" + esFiscalizadaPor + '\'' +
+                '}';
+    }
 }

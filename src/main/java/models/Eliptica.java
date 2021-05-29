@@ -32,4 +32,13 @@ public class Eliptica {
     public void setExentricidad(int exentricidad) {
         this.exentricidad = exentricidad;
     }
+
+    @Override
+    public String toString() {
+        return "Eliptica{" +
+                "id=" + id +
+                ", orbitaId=" + orbitaId +
+                ", exentricidad=" + exentricidad +
+                '}';
+    }
 }

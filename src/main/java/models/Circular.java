@@ -32,4 +32,13 @@ public class Circular {
     public void setGeoestacionaria(int geoestacionaria) {
         this.geoestacionaria = geoestacionaria;
     }
+
+    @Override
+    public String toString() {
+        return "Circular{" +
+                "id=" + id +
+                ", orbitaId=" + orbitaId +
+                ", geoestacionaria=" + geoestacionaria +
+                '}';
+    }
 }

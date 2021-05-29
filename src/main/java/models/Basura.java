@@ -48,4 +48,15 @@ public class Basura {
     public void setOrbitaId(int orbitaId) {
         this.orbitaId = orbitaId;
     }
+
+    @Override
+    public String toString() {
+        return "Basura{" +
+                "cod=" + cod +
+                ", velocity=" + velocity +
+                ", weight=" + weight +
+                ", size=" + size +
+                ", orbitaId=" + orbitaId +
+                '}';
+    }
 }

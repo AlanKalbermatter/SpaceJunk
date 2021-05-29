@@ -34,7 +34,8 @@ public class Orbita{
     @Override
     public String toString() {
         return "Orbita{" +
-                "coordR=" + coordR +
+                "id=" + id +
+                ", coordR=" + coordR +
                 ", coordFi=" + coordFi +
                 '}';
     }
