@@ -49,7 +49,7 @@ public class Main {
             pdao.create(publica);
 
             //loop que crea tipos de naves publicas
-            while(indiceTipoNave < 1000) {
+            while(indiceTipoNave < 1) {
                 //crear tipo nave
                 TipoNave tN = new TipoNave();
                 tN.setCod(cod++);
@@ -65,7 +65,7 @@ public class Main {
                     naveDAO.create(nave);
 
                     //crear basura publica
-                    while(indicieOrbitas < 1000) {
+                    while(indicieOrbitas < 1) {
                         //crear orbita
                         Eliptica eliptica = new Eliptica();
                         Orbita orbita = new Orbita();
@@ -129,7 +129,7 @@ public class Main {
                 priDAO.create(privada);
                 //loop que crea tipos de naves privadas
 
-                while(indiceTipoNave < 1000) {
+                while(indiceTipoNave < 1) {
                     //crear naves privadas
                     TipoNave tN = new TipoNave();
                     tN.setCod(cod++);
@@ -145,7 +145,7 @@ public class Main {
                         nedao.create(navePriv);
                         //crear basura privada
 
-                        while(indicieOrbitas < 1000){
+                        while(indicieOrbitas < 1){
                             //crear orbita
                             Orbita orbita = new Orbita();
                             orbita.setId(orbitaId);
@@ -167,8 +167,8 @@ public class Main {
                             orbitaDAO.create(orbita);
                             CircularDAO cDAO = new CircularDAO(conn);
                             cDAO.create(circular);
-//                            OrbitaDAO ordao = new OrbitaDAO(conn);
-//                            ordao.create(orbita);
+                            OrbitaDAO ordao = new OrbitaDAO(conn);
+                            ordao.create(orbita);
                             //crear basura
                             Basura basura = new Basura();
                             basura.setVelocity(random.nextDouble());
